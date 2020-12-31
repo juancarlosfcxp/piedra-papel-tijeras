@@ -167,12 +167,18 @@ figcaption{
 }
 
 #opciones h3{
-	color: #000;
-	text-shadow: 2px 2px 2px #fff;
+	width: 60%;
+	color: #fff;
+	background-color: #c33;
+	border-radius: 5px;
 	font-weight: bolder;
+	margin: auto;
 	margin-top: 0;
 	margin-bottom: 0;
+	padding-top: 2px;
+	padding-bottom: 2px;
 	font-family: Franklin gothic;
+	font-weight: lighter;
 }
 
 #opciones div{
@@ -257,7 +263,7 @@ figcaption{
 @media screen and (max-width:500px){
 	body{
 		width: 100%;
-		height: 100vh;
+		height: 98vh;
 		grid-template-columns: auto auto;
 		grid-template-areas: 
 			'header header '
@@ -269,7 +275,16 @@ figcaption{
 
 	h4{
 	font-size: calc(8px + 1vw);
-}
+	}
+
+	h1{
+	font-size: calc(15px + 7vw);
+	}
+
+	h2{
+		margin-top: 0;
+		font-size: calc(10px + 7vw);
+	}
 
 	#tiradas{
 		width: 70%;
@@ -281,8 +296,11 @@ figcaption{
 	}
 
 	#opciones div div{
-		padding: initial;
-	}
+	padding: 0.2em;
+	margin: 0.2em;
+	border:2px solid #c33;
+	border-radius: 50px;
+}
 
 	#tiradas div{
 		min-height: 18vh;
