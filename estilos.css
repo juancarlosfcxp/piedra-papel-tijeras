@@ -1,0 +1,299 @@
+@font-face {
+    font-family: 'harryp';
+    src: url('fuentes/harryp.TTF') format('TTF'),
+    	url('fuentes/harryp.woff2') format('woff2'),
+        url('fuentes/harryp.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html{
+	background-image: url(imagenes/fondo.jpg);
+	background-size: cover;
+	cursor: url('imagenes/puntero3.png'), auto;
+}
+
+body{
+	border-radius: 10px;
+	background-color: rgba(255,255,255,0.6);
+	width: 65%;
+	margin: auto;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: auto 40% auto;
+	grid-template-areas: 
+		'header header header'
+		'jugador marcador marcador'
+		'jugador tiradas cpu'
+		'opciones opciones cpu';
+	height: 100vh;
+}
+
+h4{
+	font-family: Franklin gothic;
+	font-weight: lighter;
+	place-self:center;
+	font-size: calc(8px + 0.5vw);
+	border:5px solid #911;
+	border-radius: 5px;
+	background-color: #444;
+	color: #d90;
+	padding: 0.5em;
+	box-shadow: 2px 2px 1px #000;
+	text-shadow: 1px 1px 1px #c33;
+}
+
+
+h1, h2, h3,figcaption{
+	font-family: 'harryp';
+	text-align: center;
+	margin-bottom: 0;
+}
+
+h1{
+	font-size: calc(15px + 3vw);
+}
+
+h2{
+	margin-top: 0;
+	font-size: calc(10px + 2vw);
+}
+
+header{
+	grid-area: header;
+}
+
+figure, img{
+	max-width: 100%;
+	text-align: center;
+}
+
+figcaption{
+	font-size: calc(10px + 1vw);
+}
+
+#jugador{
+	grid-area: jugador;
+	filter: drop-shadow(2px 2px 2px #000);
+}
+
+.vidas{
+	max-width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.vidas img{
+	max-width: 13%;
+}
+
+#marcadores{
+	grid-area: marcador;
+	display: flex;
+	justify-content: space-around;
+}
+
+#tiradas{
+	grid-area: tiradas;
+	display: flex;
+	position: relative;
+	height: 100%;
+}
+
+#tiradas div{
+	align-self: center;
+	margin: auto;
+	border:4px solid #c33;
+	border-radius: 10px;
+	text-align: center;
+	margin: auto;
+	background-color: #000;
+	position: relative;
+	max-width: 100%;
+	max-height: 100%;
+	min-height: 20vh;
+	min-width: 10vw;
+	transform-style: preserve-3d;
+	transition: 2s;
+
+}
+
+#tiradas img{
+	position: absolute;
+	max-height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	backface-visibility: hidden;
+}
+
+#tiradas img:last-of-type{
+	transform: rotateY(180deg);
+}
+
+
+#resulTiros{
+	font-size: calc(15px + 2vw);
+	color: #fff;
+	text-shadow: 2px 2px 2px #000;
+	font-weight: bolder;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	bottom: 40%;
+	margin: auto;
+	z-index: 2;
+	transition: 2s;
+}
+
+#CPU{
+	grid-area: cpu;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	filter: drop-shadow(-3px 3px 2px #000);
+}
+
+#CPU .vidas{
+	flex-direction: row-reverse;
+}
+
+#opciones{
+	grid-area: opciones;
+	text-align: center;
+}
+
+#opciones h3{
+	color: #000;
+	text-shadow: 2px 2px 2px #fff;
+	font-weight: bolder;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-family: Franklin gothic;
+}
+
+#opciones div{
+	display: flex;
+	width: 65%;
+	margin: auto;
+}
+
+#opciones div div{
+	padding: 0.5em;
+	margin: 0.5em;
+	border:4px solid #c33;
+	border-radius: 50px;
+	text-align: center;
+	background-color: rgba(255,255,255,0.7);
+}
+
+#opciones img{
+	max-width: 80%;
+	margin: auto;
+}
+
+#modal{
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	left: 0;
+	background-color: rgba(255,255,255,0.6);
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	display: none;
+	z-index: 3;
+}
+
+#modal div{
+	border:5px solid #c33;
+	border-radius: 10px;
+	padding: 2em;
+	background-color: #fff;
+}
+
+#modal h2{
+	font-size: 7vw;
+}
+
+#modal button{
+	font-size: 2vw;
+	font-family: Franklin gothic;
+	border:5px solid #911;
+	border-radius: 5px;
+	background-color: #444;
+	color: #d90;
+	padding: 0.5em;
+	box-shadow: 2px 2px 1px #000;
+	text-shadow: 1px 1px 1px #c33;
+}
+
+
+@media screen and (max-width:900px){
+	body{
+		width: 90%;
+		grid-template-areas: 
+			'header header header'
+			'marcador marcador marcador'
+			'jugador tiradas cpu'
+			'opciones opciones opciones';
+	}
+
+	#opciones{
+		width: 80%;
+		margin: auto;
+	}
+
+	#tiradas div{
+		min-height: 15vh;
+		min-width: 15vw;
+	}
+
+}
+
+@media screen and (max-width:500px){
+	body{
+		width: 100%;
+		height: 100vh;
+		grid-template-columns: auto auto;
+		grid-template-areas: 
+			'header header '
+			'marcador marcador'
+			'tiradas tiradas'
+			'opciones opciones'
+			'jugador cpu';
+	}
+
+	h4{
+	font-size: calc(8px + 1vw);
+}
+
+	#tiradas{
+		width: 70%;
+		margin: auto;
+	}
+
+	#opciones{
+		width: 100%;
+	}
+
+	#opciones div div{
+		padding: initial;
+	}
+
+	#tiradas div{
+		min-height: 18vh;
+		min-width: 35vw;
+	}
+
+	#CPU{
+		align-items: flex-start;
+	}
+
+	#modal button{
+		font-size: 4vw;
+	}
+}
